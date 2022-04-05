@@ -27,7 +27,7 @@ namespace CrashUno.Controllers
 
         public IActionResult Crash(int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 20;
 
             var blah = repo.Crash
                 .OrderBy(c => c.crash_id)
