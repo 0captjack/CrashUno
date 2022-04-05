@@ -21,14 +21,15 @@ namespace CrashUno.Controllers
         
         public IActionResult Index()
         {
-            var blah = repo.Crash.ToList();
 
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Crash()
         {
-            return View();
+            var blah = repo.Crash.ToList();
+
+            return View(blah);
         }
 
         

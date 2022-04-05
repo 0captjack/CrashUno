@@ -7,9 +7,8 @@ namespace CrashUno.Models
 {
     public class EFRepository : IRepository
     {
-        private Context context { get; set; }
-
-        public EFRepository (Context temp)
+        private TrafficContext context { get; set; }
+        public EFRepository (TrafficContext temp)
         {
             context = temp;
         }

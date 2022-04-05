@@ -27,10 +27,10 @@ namespace CrashUno
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<Context>(options =>
-            {
-                options.UseSqlite(Configuration["ConnectionStrings:CrashConnection"]);
-            });
+            services.AddDbContext<TrafficContext>(options =>
+           {
+               options.UseMySql(Configuration["ConnectionStrings:TrafficConnection"]);
+           });
             services.AddScoped<IRepository, EFRepository>();
         }
 

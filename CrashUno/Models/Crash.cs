@@ -12,10 +12,11 @@ namespace CrashUno.Models
         [Required]
         public int crash_id { get; set; }
         public string crash_datetime { get; set; }
-        public long route {get; set;}
-        public int milepoint { get; set; }
-        public long lat_utm_y { get; set; }
-        public long long_utm_x { get; set; }
+        public string route {get; set;}
+        public float milepoint { get; set; }
+        public float lat_utm_y { get; set; }
+        public float long_utm_x { get; set; }
+        public int loc_id { get; set; }
         public int crash_severity_id { get; set; }
         public bool work_zone_related { get; set; }
         public bool pedestrian_involved { get; set; }
