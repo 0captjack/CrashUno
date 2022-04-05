@@ -2,18 +2,21 @@
     ViewData["Title"] = "Crashes";
 }
 
-@model List<Crash>
+@model IQueryable<Crash>
 
 
 <h1>@ViewData["Title"]</h1>
 
 <ul>
     @foreach (var c in Model)
-            {
-                <li>@c.crash_id - @c.crash_datetime - @c.route</li>
-            }
+    {
+        <li>@c.crash_id - @c.crash_datetime - @c.route</li>
+    }
 
 </ul>
 
+<a asp-action="Crash" asp-route-pageNum="1">1</a>
+<a asp-action="Crash" asp-route-pageNum="2">2</a>
+<a asp-action="Crash" asp-route-pageNum="3">3</a>
 
 

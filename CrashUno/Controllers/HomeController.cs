@@ -25,9 +25,14 @@ namespace CrashUno.Controllers
             return View();
         }
 
-        public IActionResult Crash()
+        public IActionResult Crash(int pageNum = 1)
         {
-            var blah = repo.Crash.ToList();
+            int pageSize = 5;
+
+            var blah = repo.Crash
+                .OrderBy(c => c.crash_id)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize);
 
             return View(blah);
         }
