@@ -14,5 +14,22 @@ namespace CrashUno.Models
         }
         public IQueryable<Crash> Crash => context.Crash;
 
+        public void SaveCrashRecord(Crash c)
+        {
+            context.Update(c);
+            context.SaveChanges();
+        }
+
+        public void CreateCrashRecord(Crash c)
+        {
+            context.Add(c);
+            context.SaveChanges();
+        }
+
+        public void DeleteCrashRecord(Crash c)
+        {
+            context.Remove(c);
+            context.SaveChanges();
+        }
     }
 }

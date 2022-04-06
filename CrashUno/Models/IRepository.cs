@@ -8,5 +8,10 @@ namespace CrashUno.Models
     public interface IRepository
     {
         IQueryable<Crash> Crash { get; }
+
+        public void SaveCrashRecord(Crash c);
+        public void CreateCrashRecord(Crash c);
+        public void DeleteCrashRecord(Crash c);
     }
+
 }
