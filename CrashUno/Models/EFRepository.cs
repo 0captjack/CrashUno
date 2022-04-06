@@ -14,5 +14,6 @@ namespace CrashUno.Models
         }
         public IQueryable<Crash> Crash => context.Crash;
 
+        public IQueryable<Location> Location => context.Location;
     }
 }

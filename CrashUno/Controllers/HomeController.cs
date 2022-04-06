@@ -13,7 +13,6 @@ namespace CrashUno.Controllers
     public class HomeController : Controller
     {
         private IRepository repo;
-        // does this line need to go?? private Context context { get; set; }
 
         public HomeController (IRepository temp)
         {
@@ -57,10 +56,19 @@ namespace CrashUno.Controllers
             
             return View(x);
         }
-        //public IActionResult Location()
-        //{
+        public IActionResult Location(int pageNum = 1)
+        {
+            int pageSize = 5;
 
-        //}
-        
+            var y = new LocationViewModel
+            {
+                Location = repo.Location
+                .OrderBy(l => l.loc_id)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize)
+            };
+            return View(y);
+        }
+
     }
 }

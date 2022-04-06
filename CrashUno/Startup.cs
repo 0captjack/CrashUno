@@ -73,7 +73,7 @@ namespace CrashUno
                 
                 endpoints.MapDefaultControllerRoute();
 
-                endpoints.MapRazorPages();
+                //endpoints.MapRazorPages();
             });
             app.UseStaticFiles();
         }

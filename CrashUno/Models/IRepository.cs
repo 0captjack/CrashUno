@@ -8,5 +8,6 @@ namespace CrashUno.Models
     public interface IRepository
     {
         IQueryable<Crash> Crash { get; }
+        IQueryable<Location> Location { get; }
     }
 }
