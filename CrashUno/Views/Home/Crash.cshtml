@@ -4,13 +4,12 @@
 
 @model CrashViewModel
 
-<h2>@ViewBag.Calc</h2>
+@*<h2>@ViewBag.Calc</h2>*@
 <h1>@ViewData["Title"]</h1>
 
 
     @foreach (Crash c in Model.Crash)
     {
-        <h3>@c.crash_id</h3>
 
         <ul>
             <li>Crash ID: @c.crash_id</li>

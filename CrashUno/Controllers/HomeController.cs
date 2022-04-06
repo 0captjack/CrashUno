@@ -28,14 +28,15 @@ namespace CrashUno.Controllers
 
         public IActionResult Crash(int pageNum = 1)
         {
-            int pageSize = 20;
+            int pageSize = 5;
 
             var x = new CrashViewModel
             {
                 Crash = repo.Crash
                 .OrderBy(c => c.crash_id)
-                .Skip((pageNum - 1) * pageSize)
+                .Skip ((pageNum - 1) * pageSize)
                 .Take(pageSize),
+
 
                 PageInfo = new PageInfo
                 {
@@ -49,8 +50,8 @@ namespace CrashUno.Controllers
                 .OrderBy(c => c.crash_id)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize);
-
-            return View(blah);
+            
+            return View(x);
         }
 
         
