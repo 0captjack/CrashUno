@@ -46,5 +46,9 @@ namespace CrashUno.Models.Infrastructure
             }
             tho.Content.AppendHtml(final.InnerHtml);
         }
+        public string PageClass { get; set; }
+        public bool PageClassesEnabled { get; set; }
+        public string PageClassNormal { get; set; }
+        public string PageClassSelected { get; set; }
     }
 }

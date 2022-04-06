@@ -28,7 +28,7 @@ namespace CrashUno.Controllers
 
         public IActionResult Crash(int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 13;
 
             var x = new CrashViewModel
             {
