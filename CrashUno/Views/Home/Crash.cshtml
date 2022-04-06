@@ -4,53 +4,69 @@
 
 @model CrashViewModel
 @*<h2>@ViewBag.Calc</h2>*@
-<h1>@ViewData["Title"]</h1>
 
-<table class="table table-sm table-striped table-bordered table-hover">
+<main style="padding-top: 75px;">
 
-    <thead>
-        <tr>
-            <th>Crash ID</th>
-            <th>Time/Date</th>
-            <th>Route</th>
-            <th>Mile Marker</th>
-            <th>Lat</th>
-            <th>Long</th>
-            <th>Loc ID</th>
-            <th>Severity</th>
+    <h1>@ViewData["Title"]</h1>
 
-        </tr>
-    </thead>
+    <div class="container">
+        <div class="row">
+            <div id="types" class=col-md-2>
 
-    <tbody>
+                <vc:types></vc:types>
+            </div>
 
-        @foreach (Crash c in Model.Crash)
-        {
-        <tr>
-            <td>@c.crash_id</td>
-            <td>@c.crash_datetime</td>
-            <td>@c.route</td>
-            <td>@c.milepoint</td>
-            <td>@c.lat_utm_y</td>
-            <td>@c.long_utm_x</td>
-            <td>@c.loc_id</td>
-            <td>@c.crash_severity_id</td>
-            <td><a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-crashid="@c.crash_id">Edit</a></td>
-            <td>
-                <form method="post" asp-controller="Home" asp-action="Delete" asp-route-crashid="@c.crash_id">
-                    <input class="btn btn-danger" type="submit" value="Delete" />
-                </form>
-            </td>
+            <div class="col-md-10">
+                <table class="table table-sm table-striped table-bordered table-hover">
 
-        </tr>
-        }
-    </tbody>
+                    <thead>
+                        <tr>
+                            <th>Crash ID</th>
+                            <th>Time/Date</th>
+                            <th>Route</th>
+                            <th>Mile Marker</th>
+                            <th>Lat</th>
+                            <th>Long</th>
+                            <th>Loc ID</th>
+                            <th>Severity</th>
 
-</table>
-        
-<div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
-         page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
+                        </tr>
+                    </thead>
 
-    @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
+                    <tbody>
+
+                        @foreach (Crash c in Model.Crash)
+                        {
+                            <tr>
+                                <td>@c.crash_id</td>
+                                <td>@c.crash_datetime</td>
+                                <td>@c.route</td>
+                                <td>@c.milepoint</td>
+                                <td>@c.lat_utm_y</td>
+                                <td>@c.long_utm_x</td>
+                                <td>@c.loc_id</td>
+                                <td>@c.crash_severity_id</td>
+
+                                @* MOVE THIS INTO THE ADMIN PAGE ONCE MADE
+                                        <td><a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-crashid="@c.crash_id">Edit</a></td>
+                                    <td>
+                                        <form method="post" asp-controller="Home" asp-action="Delete" asp-route-crashid="@c.crash_id">
+                                            <input class="btn btn-danger" type="submit" value="Delete" />
+                                        </form>
+                                    </td>*@
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
+
+        @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
 
 
+    </div>
+</main>

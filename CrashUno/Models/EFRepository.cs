@@ -13,5 +13,6 @@ namespace CrashUno.Models
             context = temp;
         }
         public IQueryable<Crash> Crash => context.Crash;
+
     }
 }
