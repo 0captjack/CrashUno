@@ -53,7 +53,10 @@ namespace CrashUno.Controllers
             
             return View(x);
         }
+        //public IActionResult Location()
+        //{
 
+        //}
         
     }
 }

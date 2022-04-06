@@ -3,14 +3,12 @@
 }
 
 @model CrashViewModel
-
 @*<h2>@ViewBag.Calc</h2>*@
 <h1>@ViewData["Title"]</h1>
 
 
-    @foreach (Crash c in Model.Crash)
+@foreach (Crash c in Model.Crash)
     {
-
         <ul>
             <li>Crash ID: @c.crash_id</li>
             <li>Timestamp: @c.crash_datetime </li>
@@ -19,9 +17,10 @@
 
         <br />
     }
+        
+<div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
+         page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
 
-<div page-blah="@Model.PageInfo" page-action="Crash"></div>
-
-@*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
+    @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
 
 
