@@ -6,7 +6,7 @@
 @*<h2>@ViewBag.Calc</h2>*@
 
 <main style="padding-top: 75px;">
-
+    <br />
     <h1>@ViewData["Title"]</h1>
 
     <div class="container">
@@ -47,14 +47,6 @@
                                 <td>@c.loc_id</td>
                                 <td>@c.crash_severity_id</td>
 
-                                @* MOVE THIS INTO THE ADMIN PAGE ONCE MADE
-                                        <td><a class="btn btn-warning" asp-controller="Home" asp-action="Edit" asp-route-crashid="@c.crash_id">Edit</a></td>
-                                    <td>
-                                        <form method="post" asp-controller="Home" asp-action="Delete" asp-route-crashid="@c.crash_id">
-                                            <input class="btn btn-danger" type="submit" value="Delete" />
-                                        </form>
-                                    </td>*@
-
                             </tr>
                         }
                     </tbody>
@@ -63,7 +55,7 @@
             </div>
         </div>
         <div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
-             page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
+             page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"> <br /> </div>
 
         @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
 

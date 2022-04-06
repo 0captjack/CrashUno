@@ -10,9 +10,9 @@ namespace CrashUno.Models
     {
         [Key]
         [Required]
-        public int locid { get; set; }
+        public int loc_id { get; set; }
         public string main_road_name { get; set; }
         public string city { get; set; }
-        public string county_name { get; set; }
+        public string county { get; set; }
     }
 }
