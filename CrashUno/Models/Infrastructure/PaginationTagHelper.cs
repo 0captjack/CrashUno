@@ -35,7 +35,7 @@ namespace CrashUno.Models.Infrastructure
 
             TagBuilder final = new TagBuilder("div");
 
-            for (int i = 1; i < 15; i++) //replaced PageBlah.TotalPages with "15"
+            for (int i = 1; i < 15; i++) //REPLACED PageBlah.TotalPages WITH "15"
             {
                 TagBuilder tb = new TagBuilder("a");
 

@@ -56,6 +56,8 @@ namespace CrashUno
 
             app.UseEndpoints(endpoints =>
             {
+                
+                
                 endpoints.MapControllerRoute(
                     name: "Paging",
                     pattern: "Page{pageNum}",
