@@ -56,7 +56,7 @@ namespace CrashUno.Controllers
             
             return View(x);
         }
-        public IActionResult Location(int pageNum = 1)
+        public IActionResult Location(string searchString = "", int pageNum = 1)
         {
             int pageSize = 5;
 
@@ -66,6 +66,10 @@ namespace CrashUno.Controllers
                 .OrderBy(l => l.loc_id)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize)
+            };
+            if (searchString != "")
+            {
+                y.Location = repo.Location.Where(x => x.city == searchString);
             };
             return View(y);
         }
