@@ -2,21 +2,27 @@
     ViewData["Title"] = "Crashes";
 }
 
-@model IQueryable<Crash>
+@model CrashViewModel
 
-
+<h2>@ViewBag.Calc</h2>
 <h1>@ViewData["Title"]</h1>
 
-<ul>
-    @foreach (var c in Model)
+
+    @foreach (Crash c in Model.Crash)
     {
-        <li>@c.crash_id - @c.crash_datetime - @c.route</li>
+        <h3>@c.crash_id</h3>
+
+        <ul>
+            <li>Crash ID: @c.crash_id</li>
+            <li>Timestamp: @c.crash_datetime </li>
+            <li>RouteMarker: @c.route</li>
+        </ul>
+
+        <br />
     }
 
-</ul>
+<div page-blah="@Model.PageInfo" page-action="Crash"></div>
 
-<a asp-action="Crash" asp-route-pageNum="1">1</a>
-<a asp-action="Crash" asp-route-pageNum="2">2</a>
-<a asp-action="Crash" asp-route-pageNum="3">3</a>
+@*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
 
 

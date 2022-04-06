@@ -1,4 +1,5 @@
 ﻿using CrashUno.Models;
+using CrashUno.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -29,6 +30,21 @@ namespace CrashUno.Controllers
         {
             int pageSize = 20;
 
+            var x = new CrashViewModel
+            {
+                Crash = repo.Crash
+                .OrderBy(c => c.crash_id)
+                .Skip((pageNum - 1) * pageSize)
+                .Take(pageSize),
+
+                PageInfo = new PageInfo
+                {
+                    TotalNumCrashes = repo.Crash.Count(),
+                    CrashesPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
+            };
+            
             var blah = repo.Crash
                 .OrderBy(c => c.crash_id)
                 .Skip((pageNum - 1) * pageSize)
