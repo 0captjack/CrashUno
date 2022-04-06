@@ -8,6 +8,6 @@ namespace CrashUno.Models.ViewModels
     public class LocationViewModel
     {
         public IQueryable<Location> Location { get; set; }
-        public PageInfo PageInfo { get; set; }
+        public LocationPageInfo LocationPageInfo { get; set; }
     }
 }

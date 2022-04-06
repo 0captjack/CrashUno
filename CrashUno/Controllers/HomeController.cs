@@ -58,19 +58,30 @@ namespace CrashUno.Controllers
         }
         public IActionResult Location(string searchString = "", int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 4;
 
             var y = new LocationViewModel
             {
                 Location = repo.Location
                 .OrderBy(l => l.loc_id)
                 .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize)
+                .Take(pageSize),
+
+                LocationPageInfo = new LocationPageInfo
+                {
+                    TotalNumLocations = repo.Location.Count(),
+                    LocationsPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
             };
             if (searchString != "")
             {
-                y.Location = repo.Location.Where(x => x.city == searchString);
+                pageSize = 4;
+                y.Location = repo.Location.Where(x => x.city == searchString)
+                    .Skip((pageNum - 1) * pageSize)
+                    .Take(pageSize);
             };
+            
             return View(y);
         }
 
