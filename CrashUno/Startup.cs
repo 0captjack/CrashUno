@@ -32,6 +32,8 @@ namespace CrashUno
                options.UseMySql(Configuration["ConnectionStrings:TrafficConnection"]);
            });
             services.AddScoped<IRepository, EFRepository>();
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -60,16 +62,18 @@ namespace CrashUno
                     "{crashseverityid}/Page{pageNum}",
                     new { Controller = "Home", action = "Crash" });
 
-                endpoints.MapControllerRoute("type",
-                    "{crashseverityid}",
-                    new { Controller = "Home", action = "Crash", pageNum = 1 });
-
                 endpoints.MapControllerRoute(
                     name: "Paging",
                     pattern: "Page{pageNum}",
-                    defaults: new { Controller = "Home", action = "Index" });
+                    defaults: new { Controller = "Home", action = "Index", pageNum = 1});
 
+                endpoints.MapControllerRoute("type",
+                    "{crashseverityid}",
+                    new { Controller = "Home", action = "Crash", pageNum = 1 });
+                
                 endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapRazorPages();
             });
             app.UseStaticFiles();
         }

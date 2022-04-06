@@ -41,7 +41,10 @@ namespace CrashUno.Controllers
 
                 PageInfo = new PageInfo
                 {
-                    TotalNumCrashes = repo.Crash.Count(),
+                    TotalNumCrashes = 
+                        (crashseverityid == 0
+                        ? repo.Crash.Count()
+                        : repo.Crash.Where(c => c.crash_severity_id == crashseverityid).Count()),
                     CrashesPerPage = pageSize,
                     CurrentPage = pageNum
                 }

@@ -18,6 +18,8 @@ namespace CrashUno.Components
 
         public IViewComponentResult Invoke()
         {
+            ViewBag.SelectedType = RouteData?.Values["crashseverityid"];
+            
             var types = repo.Crash
                 .Select(x => x.crash_severity_id)
                 .Distinct()
