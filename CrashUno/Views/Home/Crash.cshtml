@@ -5,17 +5,18 @@
 @model CrashViewModel
 @*<h2>@ViewBag.Calc</h2>*@
 
-<main>
+<main style="padding-top: 75px;">
+
     <h1>@ViewData["Title"]</h1>
 
-<div class="container">
-    <div class="row">
-        <div id="types" class=col-md-2>
+    <div class="container">
+        <div class="row">
+            <div id="types" class=col-md-2>
 
-            <vc:types></vc:types>
-        </div>
+                <vc:types></vc:types>
+            </div>
 
-        <div class="col-md-10">
+            <div class="col-md-10">
                 <table class="table table-sm table-striped table-bordered table-hover">
 
                     <thead>
@@ -59,13 +60,13 @@
                     </tbody>
 
                 </table>
+            </div>
         </div>
+        <div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
+             page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
+
+        @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
+
+
     </div>
-                <div page-blah="@Model.PageInfo" page-action="Crash" page-class="btn" page-class-normal="btn-outline-dark"
-                     page-class-selected="btn-primary" page-classes-enabled="true" class="btn-group pull-right m-1"></div>
-
-                @*<a asp-action="Crash" asp-route-pageNum="1">1</a>*@
-
-
-</div>
 </main>
