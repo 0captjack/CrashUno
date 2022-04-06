@@ -26,13 +26,14 @@ namespace CrashUno.Controllers
             return View();
         }
 
-        public IActionResult Crash(int pageNum = 1)
+        public IActionResult Crash(int crashseverityid = 0, int pageNum = 1)
         {
             int pageSize = 13;
 
             var x = new CrashViewModel
             {
                 Crash = repo.Crash
+                .Where(c => c.crash_severity_id == crashseverityid || crashseverityid == 0)
                 .OrderBy(c => c.crash_id)
                 .Skip ((pageNum - 1) * pageSize)
                 .Take(pageSize),

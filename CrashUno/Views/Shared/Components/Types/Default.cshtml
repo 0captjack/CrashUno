@@ -1,0 +1,12 @@
+﻿@{
+}
+
+@model IEnumerable<int>
+
+<a asp-controller="Home" asp-action="Crash">Back to Start</a>
+
+@foreach (int t in Model)
+            {
+                <a asp-controller="Home" asp-action="Crash" asp-route-crashseverityid="@t">@t</a>
+            }
+
