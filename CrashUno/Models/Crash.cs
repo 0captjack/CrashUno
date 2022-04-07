@@ -17,7 +17,9 @@ namespace CrashUno.Models
         public float lat_utm_y { get; set; }
         public float long_utm_x { get; set; }
         public string main_road_name { get; set; }
+        [Required]
         public int loc_id { get; set; }
+        public Location Location { get; set; }
         public int crash_severity_id { get; set; }
         public int work_zone_related { get; set; }
         public int pedestrian_involved { get; set; }
