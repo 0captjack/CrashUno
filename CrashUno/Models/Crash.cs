@@ -16,27 +16,30 @@ namespace CrashUno.Models
         public float milepoint { get; set; }
         public float lat_utm_y { get; set; }
         public float long_utm_x { get; set; }
+        public string main_road_name { get; set; }
+        [Required]
         public int loc_id { get; set; }
+        public Location Location { get; set; }
         public int crash_severity_id { get; set; }
-        public bool work_zone_related { get; set; }
-        public bool pedestrian_involved { get; set; }
-        public bool bicyclist_involved { get; set; }
-        public bool motorcycle_involved { get; set; }
-        public bool improper_restraint { get; set; }
-        public bool unrestrained { get; set; }
-        public bool dui { get; set; }
-        public bool intersection_related { get; set; }
-        public bool wild_animal_related { get; set; }
-        public bool domestic_animal_related { get; set; }
-        public bool overturn_rollover { get; set; }
-        public bool commercial_motor_veh_involved { get; set; }
-        public bool teenage_driver_involved { get; set; }
-        public bool older_driver_involved { get; set; }
-        public bool night_dark_condition { get; set; }
-        public bool single_vehicle { get; set; }
-        public bool distracted_driving { get; set; }
-        public bool drowsy_driving { get; set; }
-        public bool roadway_departure { get; set; }
+        public int work_zone_related { get; set; }
+        public int pedestrian_involved { get; set; }
+        public int bicyclist_involved { get; set; }
+        public int motorcycle_involved { get; set; }
+        public int improper_restraint { get; set; }
+        public int unrestrained { get; set; }
+        public int dui { get; set; }
+        public int intersection_related { get; set; }
+        public int wild_animal_related { get; set; }
+        public int domestic_animal_related { get; set; }
+        public int overturn_rollover { get; set; }
+        public int commercial_motor_veh_involved { get; set; }
+        public int teenage_driver_involved { get; set; }
+        public int older_driver_involved { get; set; }
+        public int night_dark_condition { get; set; }
+        public int single_vehicle { get; set; }
+        public int distracted_driving { get; set; }
+        public int drowsy_driving { get; set; }
+        public int roadway_departure { get; set; }
 
     }
 }
