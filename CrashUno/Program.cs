@@ -14,13 +14,20 @@ namespace CrashUno
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-        }
 
+            //var builder = WebApplication.CreateBuilder(args);
+
+            //builder.Services.AddAuthentication(
+            //    CertificateAuthenticationDefaults.AuthenticationScheme)
+            //    .AddCertificate();
+        }
+        
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        
     }
 }
