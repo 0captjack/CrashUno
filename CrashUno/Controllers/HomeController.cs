@@ -1,6 +1,7 @@
 ﻿using CrashUno.Models;
 using CrashUno.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,7 @@ namespace CrashUno.Controllers
                 Crash = repo.Crash
                 .Where(c => c.crash_severity_id == crashseverityid || crashseverityid == 0)
                 .OrderBy(c => c.crash_id)
+                .Include(x => x.location)
                 .Skip ((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
@@ -48,11 +50,6 @@ namespace CrashUno.Controllers
                     CurrentPage = pageNum
                 }
             };
-            
-            var blah = repo.Crash
-                .OrderBy(c => c.crash_id)
-                .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize);
             
             return View(x);
         }

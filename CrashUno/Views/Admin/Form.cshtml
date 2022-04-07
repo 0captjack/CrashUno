@@ -45,8 +45,13 @@
             <br />
 
             <label asp-for="loc_id">Location:</label>
-            <input asp-for="loc_id" class="form-control" />
-            <br />
+            <select asp-for="loc_id" class="form-control">
+                <option value="">-- Select a City --</option>
+                @foreach (Location l in ViewBag.Cities)
+            {
+                <option value="@l.loc_id">@l.city</option>
+            }
+            </select>
 
             <label asp-for="crash_severity_id">Crash Severity:</label>
             <input asp-for="crash_severity_id" class="form-control" />

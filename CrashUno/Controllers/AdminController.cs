@@ -2,6 +2,7 @@
 using CrashUno.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace CrashUno.Controllers
             {
                 Crash = repo.Crash
                 .OrderBy(c => c.crash_id)
+                .Include(c => c.location)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
@@ -43,15 +45,9 @@ namespace CrashUno.Controllers
 
             if(searchString != 0)
             {
-                x.Crash = repo.Crash.Where(x => x.crash_id == searchString);
+                x.Crash = repo.Crash.Where(x => x.crash_id == searchString).Include(x => x.location);
             };
 
-            ViewBag.SelectedType = RouteData?.Values["crashseverityid"];
-
-            ViewBag.Types = repo.Crash
-            .Select(x => x.crash_severity_id)
-            .Distinct()
-            .OrderBy(x => x);
 
             return View(x);
         }
@@ -61,6 +57,7 @@ namespace CrashUno.Controllers
         public IActionResult Edit(int crashid)
         {
             ViewBag.Title = "Edit Crash Information";
+            ViewBag.Cities = repo.Location.OrderBy(x => x.city).ToList();
             var c = repo.Crash.FirstOrDefault(x => x.crash_id == crashid);
             return View("Form", c);
         }
@@ -78,6 +75,7 @@ namespace CrashUno.Controllers
         public IActionResult Add()
         {
             ViewBag.Title = "Add New Crash Record";
+            ViewBag.Cities = repo.Location.OrderBy(x => x.city).ToList();
             var c = new Crash();
             return View("Form", c);
         }
